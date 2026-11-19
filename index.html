@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#FAF7F2">
+  <meta name="description" content="App de Casamento para convidados - Deixe seu recado e compartilhe fotos da festa em tempo real.">
+  <title>Helena & Rafael — App de Casamento</title>
+
+  <!-- Tipografia do Google Fonts: Playfair Display + Plus Jakarta Sans + Alex Brush -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,400..700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos da Aplicação -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Container Principal Estilo Mobile-First -->
+  <main class="app-container" role="main">
+
+    <!-- ====================================================================
+         1. TELA PRINCIPAL (HOME)
+         ==================================================================== -->
+    <section id="view-home" class="view active" aria-labelledby="home-title">
+      <div class="home-hero">
+        <!-- Monograma Elegante dos Noivos -->
+        <div class="monogram-badge" aria-hidden="true">H&amp;R</div>
+        <p class="couple-pretitle">Celebração do Casamento</p>
+        <h1 id="home-title" class="couple-names">Helena <span>&amp;</span> Rafael</h1>
+        
+        <div class="wedding-meta">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>28 de Novembro de 2027</span>
+        </div>
+      </div>
+
+      <!-- Contagem Regressiva em Tempo Real -->
+      <section class="countdown-card" aria-label="Contagem regressiva até o casamento">
+        <h2 class="countdown-title">Contagem Regressiva para o Grande Dia</h2>
+        <div class="countdown-grid">
+          <div class="countdown-unit">
+            <span id="count-days" class="countdown-value">00</span>
+            <span class="countdown-label">Dias</span>
+          </div>
+          <div class="countdown-unit">
+            <span id="count-hours" class="countdown-value">00</span>
+            <span class="countdown-label">Horas</span>
+          </div>
+          <div class="countdown-unit">
+            <span id="count-minutes" class="countdown-value">00</span>
+            <span class="countdown-label">Min</span>
+          </div>
+          <div class="countdown-unit">
+            <span id="count-seconds" class="countdown-value">00</span>
+            <span class="countdown-label">Seg</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mensagem de Boas-vindas -->
+      <p class="welcome-message">
+        "Estamos muito felizes em celebrar o nosso amor com você. Faça parte da nossa história eternizando os momentos de hoje!"
+      </p>
+
+      <!-- Botões de Ação Grandes e Touch-friendly -->
+      <nav class="home-actions" aria-label="Ações rápidas para convidados">
+        <button type="button" class="btn-home-action" data-target="rsvp-view" aria-label="Ir para confirmação de presença">
+          <div class="action-icon-box action-icon-rsvp" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <div class="action-content">
+            <h3 class="action-title">Confirmar Presença (RSVP)</h3>
+            <p class="action-desc">Avise aos noivos que você estará lá para celebrar</p>
+          </div>
+          <div class="action-arrow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </button>
+
+        <button type="button" class="btn-home-action" data-target="view-guestbook" aria-label="Ir para tela de mensagens dos convidados">
+          <div class="action-icon-box action-icon-guestbook" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <div class="action-content">
+            <h3 class="action-title">Deixar uma Mensagem</h3>
+            <p class="action-desc">Escreva votos de carinho para o mural dos noivos</p>
+          </div>
+          <div class="action-arrow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </button>
+
+        <button type="button" class="btn-home-action" data-target="view-photos" aria-label="Ir para tela de envio de fotos">
+          <div class="action-icon-box action-icon-camera" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+              <circle cx="12" cy="13" r="4"></circle>
+            </svg>
+          </div>
+          <div class="action-content">
+            <h3 class="action-title">Enviar uma Foto</h3>
+            <p class="action-desc">Fotografe ou envie cliques direto da sua galeria</p>
+          </div>
+          <div class="action-arrow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </button>
+      </nav>
+
+      <!-- Rodapé Romântico -->
+      <footer class="app-footer">
+        <p>Feito com amor para o casamento de Helena &amp; Rafael <span class="app-footer-heart">♥</span></p>
+      </footer>
+    </section>
+
+
+    <!-- ====================================================================
+         2. TELA DE MENSAGENS (GUESTBOOK)
+         ==================================================================== -->
+    <section id="view-guestbook" class="view" aria-labelledby="guestbook-heading">
+      <!-- Cabeçalho com Botão Voltar -->
+      <header class="view-header">
+        <button type="button" class="btn-back" data-target="view-home" aria-label="Voltar para a tela principal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+        <div class="view-header-text">
+          <h2 id="guestbook-heading">Livro de Mensagens</h2>
+          <p>Deixe seus votos sinceros aos noivos</p>
+        </div>
+      </header>
+
+      <!-- Formulário de Recado -->
+      <div class="guestbook-form-card">
+        <form id="guestbook-form" autocomplete="off">
+          <div class="form-group">
+            <label for="guest-name" class="form-label">Seu Nome ou Família</label>
+            <input type="text" id="guest-name" class="form-input" placeholder="Ex: Lucas e Mariana" required maxlength="60">
+          </div>
+
+          <div class="form-group">
+            <label for="guest-message" class="form-label">Sua Mensagem de Carinho</label>
+            <textarea id="guest-message" class="form-textarea" placeholder="Deseje felicidades, relembre uma história ou comemore este momento..." required maxlength="400"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" id="btn-submit-guestbook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+            <span>Publicar Recado</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Mural Dinâmico de Mensagens -->
+      <section class="mural-section" aria-label="Mural de recados dos convidados">
+        <div class="mural-header">
+          <h3 class="mural-title">Recados dos Convidados</h3>
+          <span id="mural-count" class="mural-count">0 recados</span>
+        </div>
+
+        <div id="mural-list" class="mural-list" aria-live="polite">
+          <!-- Cards de mensagens injetados dinamicamente via guestbook.js -->
+        </div>
+      </section>
+    </section>
+
+
+    <!-- ====================================================================
+         3. TELA DE COMPARTILHAMENTO DE FOTOS
+         ==================================================================== -->
+    <section id="view-photos" class="view" aria-labelledby="photos-heading">
+      <!-- Cabeçalho com Botão Voltar -->
+      <header class="view-header">
+        <button type="button" class="btn-back" data-target="view-home" aria-label="Voltar para a tela principal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+        <div class="view-header-text">
+          <h2 id="photos-heading">Fotos da Festa</h2>
+          <p>Compartilhe seus cliques com os noivos</p>
+        </div>
+      </header>
+
+      <!-- Card de Upload e Preview -->
+      <div class="photo-upload-card">
+        
+        <!-- Input de arquivo nativo para mobile (Galeria & Câmera) -->
+        <input type="file" id="photo-input" class="sr-only-input" accept="image/*" aria-label="Selecionar foto da galeria ou tirar nova foto">
+
+        <!-- Área Grande Touch / Dropzone -->
+        <div id="photo-dropzone" class="upload-dropzone" role="button" tabindex="0" aria-label="Toque para tirar uma foto ou selecionar da galeria">
+          <div class="dropzone-icon-circle" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+              <circle cx="12" cy="13" r="4"></circle>
+            </svg>
+          </div>
+          <strong class="dropzone-title">Toque para Tirar Foto ou Escolher</strong>
+          <span class="dropzone-subtitle">Formatos aceitos: JPG, PNG, HEIC (até 10MB)</span>
+        </div>
+
+        <!-- Área de Preview (Exibida dinamicamente após seleção) -->
+        <div id="photo-preview-container" class="preview-container" aria-live="polite">
+          <div class="preview-image-wrapper">
+            <img id="photo-preview-img" class="preview-image" src="" alt="Pré-visualização da foto selecionada">
+            <button type="button" id="btn-remove-preview" class="btn-remove-preview" aria-label="Descartar esta foto e escolher outra" title="Remover foto">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Legenda Opcional -->
+          <input type="text" id="photo-caption" class="photo-caption-input" placeholder="Adicione uma legenda ou dedicação (opcional)..." maxlength="120">
+        </div>
+
+        <!-- Botão de Envio com Estado de Loading -->
+        <button type="button" id="btn-upload-photo" class="btn-primary" disabled>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          <span>Enviar Foto</span>
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- ====================================================================
+         4. TELA DE RSVP (CONFIRMAÇÃO DE PRESENÇA)
+         ==================================================================== -->
+    <div id="rsvp-view" class="view" aria-labelledby="rsvp-heading">
+      <!-- Cabeçalho com Botão Voltar -->
+      <header class="view-header">
+        <button type="button" class="btn-back" data-target="view-home" aria-label="Voltar para a tela principal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+        <div class="view-header-text">
+          <h2 id="rsvp-heading">Confirme sua Presença</h2>
+          <p>Por favor, confirme até 10 de Novembro</p>
+        </div>
+      </header>
+
+      <!-- Formulário de RSVP -->
+      <div class="rsvp-form-card">
+        <form id="rsvp-form" autocomplete="off">
+          <div class="form-group">
+            <label for="rsvp-name" class="form-label">Nome Completo *</label>
+            <input type="text" id="rsvp-name" class="form-input" placeholder="Seu nome e sobrenome" required maxlength="80">
+          </div>
+
+          <div class="form-group">
+            <label for="rsvp-phone" class="form-label">Celular / WhatsApp *</label>
+            <input type="tel" id="rsvp-phone" class="form-input" placeholder="(DD) 99999-9999" required maxlength="16">
+            <small class="form-hint">Usaremos seu número para confirmar sua mesa e enviar lembretes.</small>
+          </div>
+
+          <!-- Controle de Acompanhantes -->
+          <div class="form-group">
+            <div class="companions-stepper-wrapper">
+              <div class="stepper-label-box">
+                <span class="stepper-label-title">Irá levar acompanhantes?</span>
+                <span class="stepper-label-sub">(Cônjuge / Filhos)</span>
+              </div>
+              <div class="stepper-controls" role="group" aria-label="Controle de quantidade de acompanhantes">
+                <button type="button" id="btn-guest-minus" class="btn-stepper" aria-label="Diminuir acompanhante" disabled>−</button>
+                <span id="guest-count" class="stepper-count" aria-live="polite">0</span>
+                <button type="button" id="btn-guest-plus" class="btn-stepper" aria-label="Adicionar acompanhante">+</button>
+              </div>
+            </div>
+
+            <!-- Injeção Dinâmica dos Inputs de Acompanhantes -->
+            <div id="guest-inputs-container" class="guest-inputs-container" aria-live="polite"></div>
+          </div>
+
+          <!-- Botão de Envio -->
+          <button type="submit" id="btn-submit-rsvp" class="btn-primary" style="margin-top: 1.5rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span>Confirmar Presença</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Notificação Flutuante de Sucesso (Toast) -->
+  <aside id="toast" class="toast-container" role="status" aria-live="assertive">
+    <div class="toast-icon" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+    </div>
+    <span class="toast-text">Ação concluída com sucesso!</span>
+  </aside>
+
+  <!-- Script Garantido: Contagem Regressiva e Navegação SPA (Funciona tanto em Servidor quanto abrindo o arquivo direto no disco) -->
+  <script>
+    (function initAppDirect() {
+      // 1. Contagem Regressiva em Tempo Real (28 de Novembro de 2027 às 17:00)
+      const targetDate = new Date('2027-11-28T17:00:00').getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+
+        const elDays = document.getElementById('count-days');
+        const elHours = document.getElementById('count-hours');
+        const elMin = document.getElementById('count-minutes');
+        const elSec = document.getElementById('count-seconds');
+
+        if (!elDays || !elHours || !elMin || !elSec) return;
+
+        if (diff <= 0) {
+          elDays.textContent = '00';
+          elHours.textContent = '00';
+          elMin.textContent = '00';
+          elSec.textContent = '00';
+          const title = document.querySelector('.countdown-title');
+          if (title) title.textContent = '✨ O Grande Dia Chegou! ✨';
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        const pad = (n) => String(Math.max(0, n)).padStart(2, '0');
+
+        elDays.textContent = pad(days);
+        elHours.textContent = pad(hours);
+        elMin.textContent = pad(minutes);
+        elSec.textContent = pad(seconds);
+      }
+
+      // Executa de imediato
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          updateCountdown();
+          setInterval(updateCountdown, 1000);
+        });
+      } else {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+
+      // 2. Navegação SPA Instantânea (Garante transição de telas mesmo se módulos forem bloqueados por abrir direto do Windows Explorer)
+      document.addEventListener('click', function (e) {
+        const btn = e.target.closest('[data-target]');
+        if (!btn) return;
+        const targetId = btn.getAttribute('data-target');
+        const targetView = document.getElementById(targetId);
+        if (!targetView) return;
+
+        document.querySelectorAll('.view').forEach(function (v) {
+          v.classList.remove('active');
+        });
+        targetView.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+  <!-- Script Modular (ES6+) -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

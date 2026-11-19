@@ -1,0 +1,63 @@
+/* ==========================================================================
+   CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+   Paleta Romântica, Tipografia e Variáveis de Sistema
+   ========================================================================== */
+
+:root {
+  /* --- Tipografia --- */
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-handwriting: 'Alex Brush', cursive;
+
+  /* --- Cores Base --- */
+  --color-bg: #FAF7F2;
+  --color-bg-subtle: #F5EFEB;
+  --color-surface: #FFFFFF;
+  --color-surface-translucent: rgba(255, 255, 255, 0.88);
+  
+  /* --- Cores de Marca & Acentos Românticos --- */
+  --color-primary: #C58B79;         /* Rosa Antigo / Terracota Suave */
+  --color-primary-dark: #A66E5E;    /* Tom escuro para hover/focus */
+  --color-primary-light: #F7EEEA;   /* Fundo suave para tags/badges */
+  --color-gold: #C2A267;            /* Dourado Champanhe para detalhes */
+  --color-gold-light: #F9F5EC;
+  --color-sage: #8A9A86;            /* Verde Folhagem Eucalipto */
+  --color-sage-light: #EEF3ED;
+
+  /* --- Textos & Contraste --- */
+  --color-text-main: #2C2623;       /* Carvão acolhedor para máxima legibilidade */
+  --color-text-muted: #796F67;      /* Textos secundários e instruções */
+  --color-text-light: #A3978E;      /* Legendas e timestamps */
+  --color-text-inverse: #FFFFFF;
+
+  /* --- Bordas & Divisores --- */
+  --color-border: rgba(197, 139, 121, 0.18);
+  --color-border-hover: rgba(197, 139, 121, 0.38);
+
+  /* --- Estados de Feedback --- */
+  --color-success: #3E8256;
+  --color-success-bg: #EBF5EF;
+  --color-error: #BA4A4A;
+  --color-error-bg: #FBEFEF;
+
+  /* --- Sombras (Elegantes e Profundas) --- */
+  --shadow-sm: 0 2px 8px rgba(44, 38, 35, 0.04);
+  --shadow-md: 0 10px 28px rgba(197, 139, 121, 0.12), 0 2px 8px rgba(44, 38, 35, 0.04);
+  --shadow-lg: 0 18px 42px rgba(197, 139, 121, 0.18), 0 6px 16px rgba(44, 38, 35, 0.06);
+
+  /* --- Raios de Borda --- */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+
+  /* --- Animações & Transições --- */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* --- Layout & Responsividade --- */
+  --max-app-width: 460px;
+  --safe-area-bottom: env(safe-area-inset-bottom, 16px);
+  --touch-target-min: 48px;
+}
